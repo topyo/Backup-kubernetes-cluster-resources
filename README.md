@@ -481,7 +481,7 @@ To change the context to `Primary` cluster and install Velero, we use the comma
 
 ```
 kubectl config use-context $PRIMARY_CONTEXT
-```
+
 helm install velero vmware-tanzu/velero \
     --create-namespace \
     --namespace velero \
@@ -541,7 +541,7 @@ We now switch the context:
 kubectl config use-context $PRIMARY_CONTEXT
 
 To install ghost 
-
+```
 helm install ghost bitnami/ghost \
     --create-namespace \
     --namespace ghost
@@ -553,8 +553,8 @@ helm upgrade ghost bitnami/ghost \
   --set ghostPassword=$GHOST_PASSWORD \
   --set mariadb.auth.rootPassword=$MARIADB_ROOT_PASSWORD \
   --set mariadb.auth.password=$MARIADB_PASSWORD
-
 ```
+
 
 We can check that the install was successful by running this command:
 
@@ -593,7 +593,7 @@ To view your blog with your newly added content, open a new browser tab and ente
 
 Create a backup of the `Primary` cluster. Be sure to switch your `kubectl` context back to the `Primary` cluster before running the command below.
 
-````
+```
 velero backup create ghost-backup
 ```
 
